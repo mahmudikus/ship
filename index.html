@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шип класса ❤️</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffb6c9, #ff6b91);
+  text-align: center; color: white;
+}
+header { padding: 40px 15px 20px; }
+h1 { font-size: clamp(32px, 8vw, 42px); text-shadow: 2px 3px 8px #d6336c; }
+.subtitle { font-size: 18px; }
+.container { max-width: 500px; margin: auto; padding: 15px; }
+.pair {
+  background: rgba(255,255,255,.93); color: #e84370; margin: 15px 0;
+  padding: 22px; border-radius: 18px; font-size: 23px; font-weight: bold;
+  cursor: pointer; box-shadow: 0 5px 15px #d6336c55; transition: .25s;
+  user-select: none;
+}
+.pair:hover { transform: scale(1.04); background: white; }
+.pair:active { transform: scale(.98); }
+.heart {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  font-size: 35px; pointer-events: none; animation: pop 1.5s forwards; z-index: 10;
+  text-shadow: 0 3px 12px #d6336c66;
+}
+@keyframes pop {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(.2); }
+  30% { opacity: 1; transform: translate(-50%,-50%) scale(1.5); }
+  70% { opacity: 1; transform: translate(-50%,-70%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,-120%) scale(.8); }
+}
+footer { padding: 30px; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>❤️ ШИП КЛАССА ❤️</h1>
+  <div class="subtitle">Самые горячие пары нашего класса</div>
+</header>
+<main class="container">
+  <div class="pair" role="button" tabindex="0" onclick="showHeart('Гриша ❤️ Женя')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showHeart('Гриша ❤️ Женя')}">1. Гриша ❤️ Женя</div>
+  <div class="pair" role="button" tabindex="0" onclick="showHeart('Надя ❤️ Марк')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showHeart('Надя ❤️ Марк')}">2. Надя ❤️ Марк</div>
+  <div class="pair" role="button" tabindex="0" onclick="showHeart('Эля ❤️ Влад')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showHeart('Эля ❤️ Влад')}">3. Эля ❤️ Влад</div>
+</main>
+<footer>Made with ❤️ для нашего класса</footer>
+<script>
+function showHeart(names) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  const icon = document.createElement("div");
+  icon.textContent = "❤️";
+  const caption = document.createElement("div");
+  caption.textContent = names;
+  caption.style.cssText = "font-size:20px;white-space:nowrap";
+  heart.append(icon, caption);
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 1500);
+}
+</script>
+</body>
+</html>
